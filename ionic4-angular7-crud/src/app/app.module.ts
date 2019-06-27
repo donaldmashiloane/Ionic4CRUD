@@ -20,6 +20,10 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from "@angular/material";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +42,10 @@ import {
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     StatusBar,

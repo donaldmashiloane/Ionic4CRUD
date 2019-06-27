@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Product } from './product';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -14,7 +15,7 @@ const apiUrl = "http://localhost:3000/api/v1/products";
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private firestore: AngularFirestore) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
